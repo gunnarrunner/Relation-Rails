@@ -1,0 +1,2 @@
+class DiscsManufacturer < ApplicationRecord
+end

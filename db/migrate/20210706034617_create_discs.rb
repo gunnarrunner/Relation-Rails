@@ -7,7 +7,7 @@ class CreateDiscs < ActiveRecord::Migration[5.2]
       t.timestamp :created_at
       t.timestamp :updated_at
       t.integer :manufacturer_id
-      t.references :disc_manufacturer, foreign_key: true
+      t.references :discs_manufacturer, foreign_key: true
     end
   end
 end

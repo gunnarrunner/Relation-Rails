@@ -1,0 +1,12 @@
+<h1>Discs</h1>
+
+<% @discs.each do |disc| %>
+  <h3><a href="/discs/<%= disc.id %>"><%= disc.name %></a></h3>
+  <p><%= disc.speed %></p>
+  <a href="/discs/<%= disc.id  %>/edit">Edit</a>
+  <form action="/discs/<%= disc.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>

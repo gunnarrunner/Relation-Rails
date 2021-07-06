@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_032234) do
+ActiveRecord::Schema.define(version: 2021_07_06_034617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "discs", force: :cascade do |t|
+    t.string "name"
+    t.boolean "in_production"
+    t.integer "speed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "manufacturer_id"
+    t.bigint "discs_manufacturer_id"
+    t.index ["discs_manufacturer_id"], name: "index_discs_on_discs_manufacturer_id"
+  end
 
   create_table "discs_manufacturers", force: :cascade do |t|
     t.string "name"
@@ -24,4 +35,5 @@ ActiveRecord::Schema.define(version: 2021_07_06_032234) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "discs", "discs_manufacturers"
 end

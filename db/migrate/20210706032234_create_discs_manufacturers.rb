@@ -1,4 +1,4 @@
-class CreateDiscsManufacturer < ActiveRecord::Migration[5.2]
+class CreateDiscsManufacturers < ActiveRecord::Migration[5.2]
   def change
     create_table :discs_manufacturers do |t|
       t.string :name
