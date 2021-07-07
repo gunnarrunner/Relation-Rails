@@ -3,10 +3,9 @@ class DiscsManufacturersController < ApplicationController
     @discs_manufacturers = DiscsManufacturer.all
   end
 
-  def new
+  def show_discs
+    @discs = Disc.where(discs_manufacturer_id: DiscsManufacturer.find(params[:id]))
   end
 
-  def show
-    @discs_manufacturer = DiscsManufacturer.find(params[:id])
-  end
+
 end

@@ -1,6 +1,4 @@
-<h1> Y </h1>
+<ahref="/discs_manufacturers"> Disc Manufacturer Index</a>
 
-<ul>
-  <li><a href="/discs_manufacturers">Disc Manufacturer</a></li>
-  <li><a href="/discs">Discs</a></li>
-</ul>
+<% @discs.each do |disc| %>
+  <h3><a href="/discs/"<%= disc.id 
