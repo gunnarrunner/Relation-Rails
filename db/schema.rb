@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_07_06_034617) do
+=======
+ActiveRecord::Schema.define(version: 2021_07_06_201416) do
+>>>>>>> 8d777d66848324aaeb51e03a7d732397c21cc5e9
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "discs", force: :cascade do |t|
     t.string "name"
     t.boolean "in_production"
@@ -36,4 +41,25 @@ ActiveRecord::Schema.define(version: 2021_07_06_034617) do
   end
 
   add_foreign_key "discs", "discs_manufacturers"
+=======
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.boolean "healthy"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.boolean "champions"
+    t.integer "wins"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "players", "teams"
+>>>>>>> 8d777d66848324aaeb51e03a7d732397c21cc5e9
 end
