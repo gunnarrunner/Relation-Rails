@@ -31,6 +31,7 @@ require 'rails_helper'
     visit "/players"
    end
    it 'can show all the players names and their attributes' do
+    expect(current_path).to eq("/players")
     Player.all.each do |player|
       expect(page).to have_content(player.name)
       expect(page).to have_content(player.age)

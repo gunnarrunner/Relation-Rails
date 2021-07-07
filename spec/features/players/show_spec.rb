@@ -1,5 +1,5 @@
 require 'rails_helper'
- RSpec.describe 'shows a specific teams page' do
+ RSpec.describe 'shows a specfic players information' do
    before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
@@ -26,20 +26,17 @@ require 'rails_helper'
     @player16 = Player.create!(name:"Zach Wilson", age: 21, healthy: true, team_id:@team6.id)
     @player17 = Player.create!(name:"Elijah Moore", age: 21, healthy: true, team_id:@team6.id)
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
-     
-    visit "/teams/#{@team1.id}"
+
+    visit "/players/#{@player1.id}"
    end
 
-   it 'can show specific information on teams show page' do
-    expect(current_path).to eq("/teams/#{@team1.id}")
-    expect(page).to have_content(@team1.name)
-    expect(page).to have_content(@team1.champions)
-    expect(page).to have_content(@team1.wins)
-   end
-
-   it 'does not show other teams specific information' do
-    expect(page).to_not have_content(@team2.name)
-    expect(page).to_not have_content(@team2.champions)
-    expect(page).to_not have_content(@team2.wins)
+   it 'can display a specific player and their attributes' do
+      expect(current_path).to eq("/players/#{@player1.id}")
+      expect(page).to have_content(@player1.name)
+      expect(page).to have_content(@player1.age)
+      expect(page).to have_content(@player1.healthy)
+      expect(page).to_not have_content(@player2.name)
+      expect(page).to_not have_content(@player2.age)
+      expect(page).to_not have_content(@player2.healthy)
    end
  end

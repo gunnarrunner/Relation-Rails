@@ -11,6 +11,7 @@ require 'rails_helper'
   visit "/teams"
   end
   it 'can show all the teams names' do
+    expect(current_path).to eq("/teams")
     expect(page).to have_content(@team1.name)
     expect(page).to have_content(@team2.name)
     expect(page).to have_content(@team3.name)
