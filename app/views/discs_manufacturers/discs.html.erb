@@ -1,0 +1,10 @@
+<h1>Disc Manufacturer</h1>
+<h2>Discs:</h2>
+<% @discs.each do |disc| %>
+<h3><%= disc.name %></h3>
+<p>Speed: <%= disc.speed %></p>
+<p>In Production: <%= disc.in_production %></p>
+<p>Created At:<%= disc.created_at %> </p>
+<p>Updated At:<%= disc.updated_at %> </p>
+
+<% end %>

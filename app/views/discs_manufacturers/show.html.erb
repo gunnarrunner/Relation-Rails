@@ -1,7 +1,13 @@
 <a href="/discs_manufacturers">DiscsManufacturer Index</a>
 
 <h1><%= @discs_manufacturer.name %></h1>
+<p>Location:<%= @discs_manufacturer.location %></p>
+<p>International: <%= @discs_manufacturer.international %></p>
+<p>Variety of Discs: <%= @discs_manufacturer.variety_of_discs %></p>
+<p>Created At: <%= @discs_manufacturer.created_at %></p>
+<p>Updated At: <%= @discs_manufacturer.updated_at %></p></br></br>
 
-<p><%= @discs_manufacturer.location %></p>
+
+
 
 <a href="/discs_manufacturers/<%= @discs_manufacturer.id %>/edit">Edit</a>

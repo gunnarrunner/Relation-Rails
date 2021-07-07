@@ -2,6 +2,14 @@
 
 <h1><%= @disc.name %></h1>
 
-<p><%= @disc.speed %></p>
+<p>Speed: <%= @disc.speed %></p>
+<p>In Production: <%= @disc.in_production %></p>
+<p>Created At: <%= @disc.created_at %></p>
+<p>Updated At: <%= @disc.updated_at %></p>
+<%# <p>Manufacturer: <%= @disc.discs_manufacturer_id.name (can this be done?) %>  
+
+
+
+
 
 <a href="/discs/<%= @disc.id %>/edit">Edit</a>
