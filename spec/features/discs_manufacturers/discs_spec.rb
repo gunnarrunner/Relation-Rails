@@ -14,7 +14,6 @@ RSpec.describe 'the discs manufacturers page' do
   end
 
   it 'can show discs made by specific discs manufacturers' do
-    save_and_open_page
     expect(current_path).to eq("/discs_manufacturers/#{@dm1.id}/discs")
     @dm1.discs.each do |disc|
       expect(page).to have_content(disc.name)

@@ -16,7 +16,6 @@ RSpec.describe 'the discs_manufacturers index page' do
   end
 
   it 'does not show specific information of other discs manufacturers' do
-    save_and_open_page
     expect(page).to_not have_content(@dm2.name)
     expect(page).to_not have_content(@dm2.location)
     expect(page).to_not have_content(false)#(@dm2.international)
