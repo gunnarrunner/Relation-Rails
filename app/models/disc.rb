@@ -1,3 +1,3 @@
 class Disc < ApplicationRecord
-  belongs_to :discs_manufacturer
+  belongs_to :discs_manufacturer 
 end

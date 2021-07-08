@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'the discs manufacturers page' do
+RSpec.describe 'the discs manufacturers discs index page' do
   before :each do
     @dm1 = DiscsManufacturer.create!(name:'Innova', location:'Ontario,California', international: true, variety_of_discs: 90)
     @dm2 = DiscsManufacturer.create!(name:'Discraft', location:'London, Ontario', international: true, variety_of_discs: 48)

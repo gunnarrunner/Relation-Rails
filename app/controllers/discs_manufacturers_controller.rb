@@ -1,6 +1,6 @@
 class DiscsManufacturersController < ApplicationController
   def index
-    @discs_manufacturers = DiscsManufacturer.all
+    @discs_manufacturers = DiscsManufacturer.order_by_creation
   end
 
   def new

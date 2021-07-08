@@ -1,7 +1,12 @@
 class DiscsManufacturer < ApplicationRecord
   has_many :discs
 
-  def most_recent_disc_created
-    require "pry"; binding.pry
+  def self.order_by_creation
+    order(created_at: :desc)
   end
+
+  def disc_count
+    self.discs.count
+  end
+
 end

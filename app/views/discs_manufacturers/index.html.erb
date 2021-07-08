@@ -1,7 +1,11 @@
+<a href="/discs_manufacturers">DiscsManufacturer Index</a>
+</br>
+<a href="/discs">Disc Index</a>
+
 <h1>Disc Manufacturers</h1>
 
 <% @discs_manufacturers.each do |discs_manufacturer| %>
-  <h3><a href="/discs_manufacturers/<%= discs_manufacturer.id %>"><%= discs_manufacturer.name %></a></h3>
+  <h3><a href="/discs_manufacturers/<%= discs_manufacturer.id %>"><%= discs_manufacturer.name %></a></h3><%= discs_manufacturer.created_at %></br></br>
   <a href="/discs_manufacturers/<%= discs_manufacturer.id  %>/edit">Edit</a>
   <form action="/discs_manufacturers/<%= discs_manufacturer.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
