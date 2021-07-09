@@ -26,6 +26,10 @@ require 'rails_helper'
     expect(page).to_not have_content(@team3.wins)
     expect(page).to_not have_content(@team4.wins)
     expect(page).to_not have_content(@team5.wins)
-    expect(page).to_not have_content(@team6.wins)
+  end
+
+  it 'can order the teams by created at' do
+
+    expect(@team6.name).to appear_before(@team1.name)
   end
  end

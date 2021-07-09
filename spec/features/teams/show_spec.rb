@@ -42,4 +42,8 @@ require 'rails_helper'
     expect(page).to_not have_content(@team2.champions)
     expect(page).to_not have_content(@team2.wins)
    end
+
+   it 'can show the count the players asoociated with that ' do
+     expect(page).to have_content(3)
+   end
  end

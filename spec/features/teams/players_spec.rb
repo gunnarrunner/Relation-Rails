@@ -48,8 +48,6 @@ RSpec.describe 'Can show the players associated with a specific team with a nest
       expect(page).to have_content(@team1.name)
     team_players2.each do |player|
       expect(page).to_not have_content(player.name)
-      # expect(page).to_not have_content(player.age)
-      # expect(page).to_not have_content(player.healthy)
     end
   end
 end
