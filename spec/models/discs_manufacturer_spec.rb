@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe DiscsManufacturer, type: :model do
   it {should have_many :discs}
 
-  describe 'instance methods' do
+  describe 'class methods' do
       before :each do
         @dm1 = DiscsManufacturer.create!(name:'Innova', location:'Ontario,California', international: true, variety_of_discs: 90)
         @dm2 = DiscsManufacturer.create!(name:'Discraft', location:'London, Ontario', international: true, variety_of_discs: 48)
@@ -14,5 +14,17 @@ RSpec.describe DiscsManufacturer, type: :model do
         @disc4 = Disc.create!(name: 'Freetail', in_production: true, speed: 10, discs_manufacturer_id: @dm3.id)
         @disc5 = Disc.create!(name: 'Flash', in_production: true, speed: 11, discs_manufacturer_id: @dm2.id)
       end
+
+      # it 'can order the discs manufacturers by most recent created date' do
+      #   visit "/discs_manufacturers/index"
+      #
+      #   expect(@dm3.name).to appear_before(@dm2.name)
+      # end
+      #
+      # it 'can count the discs made by a disc manufacturer' do
+      #   visit "/discs_manufacturers/#{@dm1.id}"
+      #
+      #   expect(page).to have_content(@dm1.disc_count)
+      # end
     end
   end

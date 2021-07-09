@@ -33,4 +33,23 @@ RSpec.describe 'the discs_manufacturers show page' do
   it 'can show number of discs associated with a discs manufacturer' do
     expect(page).to have_content(@dm1.disc_count)
   end
+
+  it 'has a link to the disc manufacturer index at the top of the page' do
+    expect(page).to have_link('Disc Manufacturer Index')
+    click_on 'Disc Manufacturer Index'
+    expect(current_path).to eq('/discs_manufacturers')
+
+  end
+
+  it 'has a link to the disc index at the top of the page' do
+    expect(page).to have_link('Disc Index')
+    click_on 'Disc Index'
+    expect(current_path).to eq('/discs')
+  end
+
+  it 'has a link to the discs made by each disc mamufacturer on their show page' do
+    expect(page).to have_link('Discs Made By This Manufacturer')
+    click_on 'Discs Made By This Manufacturer'
+    expect(current_path).to eq("/discs_manufacturers/#{@dm1.id}/discs")
+  end
 end

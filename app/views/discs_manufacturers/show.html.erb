@@ -1,5 +1,4 @@
-<a href="/discs_manufacturers">DiscsManufacturer Index</a> </br>
-<a href="/discs">Disc Index</a>
+<a href="/discs_manufacturers/<%= @discs_manufacturer.id %>/discs">Discs Made By This Manufacturer</a>
 
 <section id="dm-<%= @discs_manufacturer.id %>">
 <h1><%= @discs_manufacturer.name %></h1>
@@ -10,7 +9,5 @@
 <p>Updated At: <%= @discs_manufacturer.updated_at %></p>
 <p> Disc Count: <%= @discs_manufacturer.disc_count %> </p> </br></br>
 </section>
-
-
 
 <a href="/discs_manufacturers/<%= @discs_manufacturer.id %>/edit">Edit</a>
