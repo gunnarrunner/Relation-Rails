@@ -28,6 +28,7 @@ require 'rails_helper'
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
      
     visit "/teams/#{@team1.id}"
+    save_and_open_page
    end
 
    it 'can show specific information on teams show page' do
@@ -45,5 +46,13 @@ require 'rails_helper'
 
    it 'can show the count the players asoociated with that ' do
      expect(page).to have_content(3)
+   end
+
+   it 'it shows a link and also able to click the link to go to the child page associated to that teams id' do
+    expect(page).to have_link('roster')
+
+    click_on('roster')
+     
+    expect(current_path).to eq("/teams/#{@team1.id}/players")
    end
  end

@@ -30,6 +30,18 @@ RSpec.describe 'Can show the players associated with a specific team with a nest
     visit "/teams/#{@team1.id}/players"
   end
 
+  it 'shows a link on top of the for the teams index page' do
+    click_on("Team's Index")
+
+    expect(current_path).to eq("/teams")
+  end
+
+  it 'shows a link on top of the for the players index page' do
+    click_on("Player's Index")
+
+    expect(current_path).to eq("/players")
+  end
+
   it 'can show the players associated with this specific team' do
     team_players1 = [@player1, @player2, @player3]
 
