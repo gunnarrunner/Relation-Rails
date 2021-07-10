@@ -1,11 +1,11 @@
-<a href="/discs_manufacturers/new">Create New Disc Manufacturer</a>
-<%# <%= link_to "Create New Disc Manufacturer", "/discs_manufacturers/new" %>  %>
+<!-- <a href="/discs_manufacturers/new">Create New Disc Manufacturer</a> -->
+<%= link_to "Create New Disc Manufacturer", "/discs_manufacturers/new" %>
 
 <h1>Disc Manufacturers</h1>
 
 <% @discs_manufacturers.each do |discs_manufacturer| %>
   <h3><a href="/discs_manufacturers/<%= discs_manufacturer.id %>"><%= discs_manufacturer.name %></a></h3><%= discs_manufacturer.created_at %></br></br>
-  <a href="/discs_manufacturers/<%= discs_manufacturer.id  %>/edit">Edit</a>
+  <%= button_to "Edit #{discs_manufacturer.name}", "/discs_manufacturers/#{discs_manufacturer.id}/edit", method: :get %>
   <form action="/discs_manufacturers/<%= discs_manufacturer.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">

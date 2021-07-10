@@ -27,6 +27,18 @@ class DiscsManufacturersController < ApplicationController
       redirect_to '/discs_manufacturers'
   end
 
+  def edit
+    @discs_manufacturer = DiscsManufacturer.find(params[:id])
+  end
+
+  def update
+   discs_manufacturer = DiscsManufacturer.find(params[:id])
+   discs_manufacturer.update(discs_manufacturer_params)
+   redirect_to '/discs_manufacturers'
+  end
+
+private
+
   def discs_manufacturer_params
     params.permit(:name, :location, :international, :variety_of_discs)
   end

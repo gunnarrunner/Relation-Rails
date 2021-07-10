@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/discs', to: 'discs#index'
   get '/discs/:id', to: 'discs#show'
   get '/discs_manufacturers/:discs_manufacturer_id/discs', to: 'discs_manufacturers#discs'
-  
+  get '/discs_manufacturers/:id/edit', to: 'discs_manufacturers#edit'
+  patch '/discs_manufacturers/:id', to: 'discs_manufacturers#update'
+
 
   get '/teams', to: 'teams#index'
   get '/teams/:id', to: 'teams#show'
