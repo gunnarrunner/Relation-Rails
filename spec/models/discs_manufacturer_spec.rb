@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.describe DiscsManufacturer, type: :model do
   it {should have_many :discs}
+  it {should validate_presence_of :name}
+  it {should validate_presence_of :location}
+  # it {should validate_presence_of :international}
+  it {should validate_presence_of :variety_of_discs}
+  it {should allow_value(true).for(:international)}
+  it {should allow_value(false).for(:international)}
+  it {should_not allow_value(nil).for(:international)}
 
   describe 'class methods' do
       before :each do
