@@ -37,6 +37,13 @@ class DiscsManufacturersController < ApplicationController
    redirect_to '/discs_manufacturers'
   end
 
+  def destroy
+    discs_manufacturer = DiscsManufacturer.find(params[:id])
+    discs_manufacturer.destroy
+    redirect_to '/discs_manufacturers'
+
+  end
+
 private
 
   def discs_manufacturer_params

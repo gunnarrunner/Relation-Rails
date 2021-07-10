@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/discs_manufacturers/:discs_manufacturer_id/discs', to: 'discs_manufacturers#discs'
   get '/discs_manufacturers/:id/edit', to: 'discs_manufacturers#edit'
   patch '/discs_manufacturers/:id', to: 'discs_manufacturers#update'
+  delete '/discs_manufacturers/:id', to: 'discs_manufacturers#destroy'
+
 
 
   get '/teams', to: 'teams#index'
