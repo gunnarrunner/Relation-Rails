@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 
   get '/', to: 'welcome#index'
   get '/discs_manufacturers', to: 'discs_manufacturers#index'
+  get '/discs_manufacturers/new', to: 'discs_manufacturers#new'
+  post '/discs_manufacturers', to: 'discs_manufacturers#create'
   get '/discs_manufacturers/:id', to: 'discs_manufacturers#show'
   get '/discs', to: 'discs#index'
   get '/discs/:id', to: 'discs#show'
   get '/discs_manufacturers/:discs_manufacturer_id/discs', to: 'discs_manufacturers#discs'
+  
 
   get '/teams', to: 'teams#index'
   get '/teams/:id', to: 'teams#show'
