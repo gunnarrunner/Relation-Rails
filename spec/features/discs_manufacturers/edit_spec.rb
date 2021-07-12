@@ -31,6 +31,9 @@ RSpec.describe 'the disc manufacturer edit' do
     click_button 'Edit Kastaplas'
 
     fill_in 'Name', with: 'Kastaplast'
+    fill_in 'Location', with: 'Stockholm, Sweden'
+    check 'International'
+    fill_in 'Variety of discs', with: 14
     click_button 'Update Disc Manufacturer'
 
     expect(current_path).to eq("/discs_manufacturers")

@@ -1,6 +1,7 @@
 class DiscsController < ApplicationController
   def index
     @discs = Disc.where(in_production: true)
+    #if button gets clicked.... index changes to Disc.sorts_discs_by_alpha
   end
 
   def new

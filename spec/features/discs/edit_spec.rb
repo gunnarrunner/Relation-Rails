@@ -31,10 +31,12 @@ RSpec.describe 'the disc edit' do
     expect(page).to have_content('Destroye')
 
     click_button 'Edit Destroye'
-    
+
     expect(current_path).to eq("/discs/#{disc.id}/edit")
 
     fill_in 'Name', with: 'Destroyer'
+    check 'In production'
+    fill_in 'Speed', with: 12
     click_button 'Update Disc'
 
     expect(current_path).to eq("/discs")

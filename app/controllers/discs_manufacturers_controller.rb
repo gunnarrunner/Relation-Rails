@@ -6,8 +6,8 @@ class DiscsManufacturersController < ApplicationController
   def new
     # @discs_manufacturer = DiscsManufacturer.find(params[:id])
   end
-
   def show
+
     @discs_manufacturer = DiscsManufacturer.find(params[:id])
   end
 

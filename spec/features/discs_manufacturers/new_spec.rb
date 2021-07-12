@@ -10,10 +10,10 @@ RSpec.describe 'Create a Disc Manufacturer' do
 
     fill_in('Name', with: 'Kastaplast')
     fill_in('Location', with: 'Stockholm, Sweden')
-    fill_in('International', with: true)
+    check 'International'
     fill_in('Variety of discs', with: 14)
 
-    click_button('Create Disc Manufacturer') 
+    click_button('Create Disc Manufacturer')
 
     expect(current_path).to eq('/discs_manufacturers')
     expect(page).to have_content('Kastaplast')

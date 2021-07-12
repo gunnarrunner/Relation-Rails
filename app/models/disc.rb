@@ -5,4 +5,8 @@ class Disc < ApplicationRecord
                         :speed
 
   validates             :in_production, inclusion: [true, false]
+
+  def sort_discs_by_alpha
+    self.discs.sort(:name)
+  end
 end

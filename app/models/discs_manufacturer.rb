@@ -7,6 +7,7 @@ class DiscsManufacturer < ApplicationRecord
                         :variety_of_discs
 
   validates             :international, inclusion: [true, false]
+
   def self.order_by_creation
     order(created_at: :desc)
   end

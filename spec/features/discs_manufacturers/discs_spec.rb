@@ -26,14 +26,16 @@ RSpec.describe 'the discs manufacturers discs index page' do
     expect(page).to have_link('Create New Disc')
   end
 
-  it 'can link to sort discs alphabetically by name' do
-    click_link "Sort Discs by Name"
-    expect(current_path).to eq("discs_manufacturers/#{@dm1.id}/discs")
-  end
+  # it 'can link to sort discs alphabetically by name' do
+  #   click_link "Sort Discs by Name"
+  #   expect(current_path).to eq("discs_manufacturers/#{@dm1.id}/discs")
+  # end
 
-  it 'can sort discs alphabetically by name' do
-    click_link "Sort Discs by Name"
+  # it 'can sort discs alphabetically by name' do
+  #   click_link "Sort Discs by Name"
+  #
+  #   expect(@disc1.name).to appear_before(@disc2.name)
+  # end
 
-    expect(@disc1.name).to appear_before(@disc2.name)
-  end
+  # it 'has a link to sort the discs by alphabetical order'
 end
