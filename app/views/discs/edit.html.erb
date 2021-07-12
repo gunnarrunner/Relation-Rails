@@ -1,0 +1,9 @@
+<%= form_with url: "/discs/#{@discs.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %></br>
+  <%= f.label :speed %>
+  <%= f.text_field :speed %></br>
+  <%= f.label :in_production %>
+  <%= f.check_box :in_production %> (Check If Disc Is Still In Production)</br>
+  <%= f.submit 'Update Disc' %>
+<% end %>

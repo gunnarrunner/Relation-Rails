@@ -6,8 +6,5 @@
 <p>Updated At: <%= @disc.updated_at %></p>
 <%# <p>Manufacturer: <%= @disc.discs_manufacturer_id.name (can this be done?) %>
 
-
-
-
-
-<a href="/discs/<%= @disc.id %>/edit">Edit</a>
+<%= button_to "Edit #{@disc.name}", "/discs/#{@disc.id}/edit", method: :get %>
+<%= button_to "Delete", "/discs/#{@disc.id}", method: :delete %>
