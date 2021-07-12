@@ -4,6 +4,7 @@ class DiscsManufacturersController < ApplicationController
   end
 
   def new
+    # @discs_manufacturer = DiscsManufacturer.find(params[:id])
   end
 
   def show
@@ -16,15 +17,9 @@ class DiscsManufacturersController < ApplicationController
   end
 
   def create
-    new_discs_manufacturer = DiscsManufacturer.create(discs_manufacturer_params)  #({
-      # name: params[:name], #why does task manager have title: params[:tasks][:title]
-      # location: params[:location],
-      # international: params[:international],
-      # variety_of_discs: params[:variety_of_discs]
-      # })
-
-      new_discs_manufacturer.save
-      redirect_to '/discs_manufacturers'
+    new_discs_manufacturer = DiscsManufacturer.create(discs_manufacturer_params)
+    new_discs_manufacturer.save
+    redirect_to '/discs_manufacturers'
   end
 
   def edit

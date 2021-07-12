@@ -7,7 +7,8 @@
 <p>Variety of Discs: <%= @discs_manufacturer.variety_of_discs %></p>
 <p>Created At: <%= @discs_manufacturer.created_at %></p>
 <p>Updated At: <%= @discs_manufacturer.updated_at %></p>
-<p> Disc Count: <%= @discs_manufacturer.disc_count %> </p> </br></br>
+<p> Disc Count: <%= @discs_manufacturer.disc_count %> </p> 
 </section>
 
-<a href="/discs_manufacturers/<%= @discs_manufacturer.id %>/edit">Edit</a>
+<%= button_to "Edit #{@discs_manufacturer.name}", "/discs_manufacturers/#{@discs_manufacturer.id}/edit", method: :get %>
+<%= button_to "Delete", "/discs_manufacturers/#{@discs_manufacturer.id}", method: :delete %>

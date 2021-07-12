@@ -22,7 +22,7 @@ RSpec.describe 'the disc manufacturer edit' do
     expect(current_path).to eq("/discs_manufacturers/#{discs_manufacturer.id}/edit")
   end
 
-  it 'can edit the artist' do
+  it 'can edit the disc manufacturer' do
     discs_manufacturer = DiscsManufacturer.create!(name: 'Kastaplas', location: 'Stockholm, Sweden', international: true, variety_of_discs: 14)
 
     visit "/discs_manufacturers"

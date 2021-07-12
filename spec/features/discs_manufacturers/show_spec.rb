@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'the discs_manufacturers show page' do
+RSpec.describe 'the discs manufacturers show page' do
   before :each do
     @dm1 = DiscsManufacturer.create!(name:'Innova', location:'Ontario,California', international: true, variety_of_discs: 90)
     @dm2 = DiscsManufacturer.create!(name:'Discraft', location:'London, Ontario', international: true, variety_of_discs: 48)
@@ -38,7 +38,6 @@ RSpec.describe 'the discs_manufacturers show page' do
     expect(page).to have_link('Disc Manufacturer Index')
     click_on 'Disc Manufacturer Index'
     expect(current_path).to eq('/discs_manufacturers')
-
   end
 
   it 'has a link to the disc index at the top of the page' do
