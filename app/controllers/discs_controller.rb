@@ -1,10 +1,12 @@
 class DiscsController < ApplicationController
   def index
-    @discs = Disc.where(in_production: true)
+    @discs = Disc.discs_in_production #too much logic?
+    # @discs = Disc.discs_in_production
     #if button gets clicked.... index changes to Disc.sorts_discs_by_alpha
   end
 
   def new
+    # require "pry"; binding.pry
     # @discs_manufacturer = DiscsManufacturer.find(params["#{@discs_manufacturer.id}"])
     @discs_manufacturer = DiscsManufacturer.find(params[:discs_manufacturer_id])
   end
@@ -20,7 +22,7 @@ class DiscsController < ApplicationController
   end
 
   def edit
-    @discs = Disc.find(params[:id])
+    @disc = Disc.find(params[:id])
   end
 
   def update

@@ -12,8 +12,8 @@ class DiscsManufacturersController < ApplicationController
   end
 
   def discs
-    manufacturer = DiscsManufacturer.find(params[:discs_manufacturer_id])
-    @discs = manufacturer.discs
+    @manufacturer = DiscsManufacturer.find(params[:discs_manufacturer_id])
+    @discs = @manufacturer.discs
   end
 
   def create

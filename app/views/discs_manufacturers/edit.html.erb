@@ -1,11 +1,11 @@
 <%= form_with url: "/discs_manufacturers/#{@discs_manufacturer.id}", method: :patch, local: true do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %></br>
+  <%= f.text_field :name, :value => "#{@discs_manufacturer.name}" %></br>
   <%= f.label :location %>
-  <%= f.text_field :location %></br>
+  <%= f.text_field :location, :value => "#{@discs_manufacturer.location}" %></br>
   <%= f.label :international %>
   <%= f.check_box :international %> (Check If Discs Are Available Internationnaly)</br>
   <%= f.label :variety_of_discs %>
-  <%= f.text_field :variety_of_discs %></br>
+  <%= f.text_field :variety_of_discs, :value => "#{@discs_manufacturer.variety_of_discs}" %></br>
   <%= f.submit 'Update Disc Manufacturer' %>
 <% end %>

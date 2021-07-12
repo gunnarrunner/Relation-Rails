@@ -6,7 +6,11 @@ class Disc < ApplicationRecord
 
   validates             :in_production, inclusion: [true, false]
 
-  def sort_discs_by_alpha
-    self.discs.sort(:name)
+  def self.sort_discs_by_alpha
+    self.sort(:name)
+  end
+
+  def self.discs_in_production #calling it on a class w/ self here
+    self.where(in_production: true)
   end
 end

@@ -2,10 +2,8 @@
   <%= f.label :name %>
   <%= f.text_field :name %><br>
   <%= f.label :in_production %>
-  <%= f.text_field :in_production %><br>
+  <%= f.check_box :in_production %> (Check If Discs Are Still In Production)<br>
   <%= f.label :speed %>
   <%= f.text_field :speed %><br>
-  <%= f.label :discs_manufacturer_id %>
-  <%= f.text_field :discs_manufacturer_id %>
   <%= f.submit "Create New Disc" %>
 <% end %>
