@@ -21,11 +21,11 @@ require 'rails_helper'
   end
 
   it 'only shows the names and not other information about the teams' do
-    expect(page).to_not have_content(@team1.wins)
-    expect(page).to_not have_content(@team2.wins)
-    expect(page).to_not have_content(@team3.wins)
-    expect(page).to_not have_content(@team4.wins)
-    expect(page).to_not have_content(@team5.wins)
+    expect(page).to_not have_content("Teams wins: #{@team1.wins}")
+    expect(page).to_not have_content("Teams wins: #{@team2.wins}")
+    expect(page).to_not have_content("Teams wins: #{@team3.wins}")
+    expect(page).to_not have_content("Teams wins: #{@team4.wins}")
+    expect(page).to_not have_content("Teams wins: #{@team5.wins}")
   end
 
   it 'can order the teams by created at' do

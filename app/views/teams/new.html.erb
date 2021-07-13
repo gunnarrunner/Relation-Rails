@@ -1,0 +1,13 @@
+<%= form_with url: '/teams', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <p> <%= form.text_field :name %> </p>
+  <%= form.label :wins %>
+  <p> <%= form.number_field :wins %> </p>
+  <%= form.label :champions %>
+  <p> <%= form.label :champions, "true", :value => "true" %> 
+  <%= form.radio_button :champions, true %> 
+  <%= form.label :champions, "false", :value => "false" %> 
+  <%= form.radio_button :champions, false %> </p>
+
+  <%= form.submit "Create Team" %>
+<% end %>

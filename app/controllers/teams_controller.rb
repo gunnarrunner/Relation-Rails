@@ -12,13 +12,14 @@ class TeamsController < ApplicationController
     @team_players = @team.players
   end
 
-  # def new
+  def new
     
-  # end
+  end
 
-  # def create
-    
-  # end
+  def create
+    team = Team.create(teams_params)
+    redirect_to '/teams'
+  end
 
   # def edit
     
@@ -32,8 +33,8 @@ class TeamsController < ApplicationController
     
   # end
 
-  # private
-  # def _params
-  #   params.permit(:)
-  # end
+  private
+  def teams_params
+    params.permit(:name, :wins, :champions)
+  end
 end
