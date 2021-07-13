@@ -5,9 +5,9 @@
 <p>Location:<%= @discs_manufacturer.location %></p>
 <p>International: <%= @discs_manufacturer.international %></p>
 <p>Variety of Discs: <%= @discs_manufacturer.variety_of_discs %></p>
+<p> Disc Count: <%= @discs_manufacturer.disc_count %> </p> 
 <p>Created At: <%= @discs_manufacturer.created_at %></p>
 <p>Updated At: <%= @discs_manufacturer.updated_at %></p>
-<p> Disc Count: <%= @discs_manufacturer.disc_count %> </p> 
 </section>
 
 <%= button_to "Edit #{@discs_manufacturer.name}", "/discs_manufacturers/#{@discs_manufacturer.id}/edit", method: :get %>

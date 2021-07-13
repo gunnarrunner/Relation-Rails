@@ -1,5 +1,5 @@
 class DiscsManufacturer < ApplicationRecord
-  has_many :discs
+  has_many :discs, dependent: :destroy
 
   validates_presence_of :name,
                         :location,

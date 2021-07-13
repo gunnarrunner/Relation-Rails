@@ -9,9 +9,12 @@
 <p>In Production: <%= disc.in_production %></p>
 <p>Created At:<%= disc.created_at %> </p>
 <p>Updated At:<%= disc.updated_at %> </p>
-
 <% end %>
 
-<%# <%= link_to "Sort Discs by Name", "/discs_manufacturers/#{@discs_manufacturer.id}/discs/sort" %>
+<%= link_to "Sort Discs in Alphabetical Order", "/discs_manufacturers/#{@manufacturer.id}/discs?alphabetical=true" %>
 
-<%# <%= link_to "Sort Discs in Alphabetical Order by Name", "/discs_manufacturers/#{@discs_manufacturer.id}/discs"%>
+<%= form_with url: "/discs_manufacturers/#{@manufacturer.id}/discs", method: :get, local: true do |f| %>
+<%= f.label :number %>
+<%= f.text_field :number %>
+<%= f.submit "Only return records with more than 'number' of Speed" %>
+<% end %>

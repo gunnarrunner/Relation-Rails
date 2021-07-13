@@ -7,13 +7,18 @@ class DiscsManufacturersController < ApplicationController
     # @discs_manufacturer = DiscsManufacturer.find(params[:id])
   end
   def show
-
     @discs_manufacturer = DiscsManufacturer.find(params[:id])
   end
 
   def discs
     @manufacturer = DiscsManufacturer.find(params[:discs_manufacturer_id])
-    @discs = @manufacturer.discs
+    if params[:alphabetical] # == 'true'
+      @discs = @manufacturer.discs.sort_discs_by_alpha
+    elsif params[:number]
+      @discs = @manufacturer.discs.over_threshold(params[:number])
+    else
+      @discs = @manufacturer.discs
+    end
   end
 
   def create

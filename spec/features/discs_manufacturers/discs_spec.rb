@@ -9,6 +9,8 @@ RSpec.describe 'the discs manufacturers discs index page' do
     @disc3 = Disc.create!(name: 'Challenger', in_production: true, speed: 12, discs_manufacturer_id: @dm2.id)
     @disc4 = Disc.create!(name: 'Freetail', in_production: true, speed: 10, discs_manufacturer_id: @dm3.id)
     @disc5 = Disc.create!(name: 'Flash', in_production: true, speed: 11, discs_manufacturer_id: @dm2.id)
+    @disc6 = Disc.create!(name: 'Leopard3', in_production: true, speed: 7, discs_manufacturer_id: @dm1.id)
+
 
     visit "/discs_manufacturers/#{@dm1.id}/discs"
   end
@@ -22,20 +24,29 @@ RSpec.describe 'the discs manufacturers discs index page' do
     end
   end
 
+  it 'does not show discs made by other discs manufacturers' do
+    expect(page).to_not have_content("#{@dm2.discs}")
+    expect(page).to_not have_content("#{@dm3.discs}")
+  end
+
   it 'has a link to create a new disc made by that manufacturer' do
     expect(page).to have_link('Create New Disc')
   end
 
-  # it 'can link to sort discs alphabetically by name' do
-  #   click_link "Sort Discs by Name"
-  #   expect(current_path).to eq("discs_manufacturers/#{@dm1.id}/discs")
-  # end
+  it 'has a link to create a new disc made by that manufacturer' do
+    expect(page).to have_link('Sort Discs in Alphabetical Order')
+  end
 
-  # it 'can sort discs alphabetically by name' do
-  #   click_link "Sort Discs by Name"
-  #
-  #   expect(@disc1.name).to appear_before(@disc2.name)
-  # end
+  it 'can link to sort discs alphabetically by name' do
+    click_link "Sort Discs in Alphabetical Order"
+    expect(current_path).to eq("/discs_manufacturers/#{@dm1.id}/discs")
+  end
 
-  # it 'has a link to sort the discs by alphabetical order'
+  it 'can sort discs alphabetically by name' do
+    click_link "Sort Discs in Alphabetical Order"
+
+    expect(@disc1.name).to appear_before(@disc6.name)
+    expect(@disc6.name).to appear_before(@disc2.name)
+
+  end
 end
