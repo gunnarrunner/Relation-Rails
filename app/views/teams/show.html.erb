@@ -2,6 +2,7 @@
 <h3> Champions: <%= @team.champions %> </h3>
 <h3> Number of Wins: <%= @team.wins %> </h3>
 <h3> Number of Players: <%= @team.count_players %> </h3>
+<h3> Link to Update the <%= link_to "#{@team.name}", "/teams/#{@team.id}/edit" %> </h3>
 <h3> Click on this link to see the full <%= link_to 'roster', "/teams/#{@team.id}/players" %> for this team. </h3>
 
 
