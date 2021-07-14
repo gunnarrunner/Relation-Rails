@@ -3,7 +3,6 @@ class DiscsManufacturer < ApplicationRecord
 
   validates_presence_of :name,
                         :location,
-                        # :international,
                         :variety_of_discs
 
   validates             :international, inclusion: [true, false]

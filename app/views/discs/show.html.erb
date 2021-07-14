@@ -4,7 +4,6 @@
 <p>In Production: <%= @disc.in_production %></p>
 <p>Created At: <%= @disc.created_at %></p>
 <p>Updated At: <%= @disc.updated_at %></p>
-<%# <p>Manufacturer: <%= @disc.discs_manufacturer_id.name (can this be done?) %>
 
 <%= button_to "Edit #{@disc.name}", "/discs/#{@disc.id}/edit", method: :get %>
 <%= button_to "Delete", "/discs/#{@disc.id}", method: :delete %>

@@ -1,13 +1,9 @@
 class DiscsController < ApplicationController
   def index
-    @discs = Disc.discs_in_production #too much logic?
-    # @discs = Disc.discs_in_production
-    #if button gets clicked.... index changes to Disc.sorts_discs_by_alpha
+    @discs = Disc.discs_in_production
   end
 
   def new
-    # require "pry"; binding.pry
-    # @discs_manufacturer = DiscsManufacturer.find(params["#{@discs_manufacturer.id}"])
     @discs_manufacturer = DiscsManufacturer.find(params[:discs_manufacturer_id])
   end
 
