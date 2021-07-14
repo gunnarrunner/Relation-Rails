@@ -1,0 +1,20 @@
+
+<%= link_to "Create New Disc", "/discs_manufacturers/#{@manufacturer.id}/new" %>
+
+<h1>Disc Manufacturer</h1>
+<h2>Discs:</h2>
+<% @discs.each do |disc| %>
+<h3><%= disc.name %></h3>
+<p>Speed: <%= disc.speed %></p>
+<p>In Production: <%= disc.in_production %></p>
+<p>Created At:<%= disc.created_at %> </p>
+<p>Updated At:<%= disc.updated_at %> </p>
+<% end %>
+
+<%= link_to "Sort Discs in Alphabetical Order", "/discs_manufacturers/#{@manufacturer.id}/discs?alphabetical=true" %>
+
+<%= form_with url: "/discs_manufacturers/#{@manufacturer.id}/discs", method: :get, local: true do |f| %>
+<%= f.label :number, "Return Discs Higher Than:" %>
+<%= f.text_field :number %>
+<%= f.submit "Submit" %>
+<% end %>

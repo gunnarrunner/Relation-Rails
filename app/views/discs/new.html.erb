@@ -1,0 +1,9 @@
+<%= form_with url: "/discs_manufacturers/#{@discs_manufacturer.id}/discs", method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :in_production %>
+  <%= f.check_box :in_production %> (Check If Discs Are Still In Production)<br>
+  <%= f.label :speed %>
+  <%= f.text_field :speed %><br>
+  <%= f.submit "Create New Disc" %>
+<% end %>
