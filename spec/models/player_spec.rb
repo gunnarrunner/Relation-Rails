@@ -52,6 +52,13 @@ RSpec.describe Player, type: :model do
         expect(Player.players_alphabetically.first.name).to eq(@player9.name)
       end
     end
+
+    describe '.filter_age' do
+      it 'can find age over a certain age' do
+        
+        expect(Player.filter_age(35)).to eq([@player7])
+      end
+    end
   end
 
   # describe 'instance methods' do

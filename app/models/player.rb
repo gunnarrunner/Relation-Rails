@@ -9,4 +9,8 @@ class Player < ApplicationRecord
   def self.players_alphabetically
     order("LOWER(name)")
   end
+
+   def self.filter_age(age)
+    where("players.age > ?", age)
+  end
 end

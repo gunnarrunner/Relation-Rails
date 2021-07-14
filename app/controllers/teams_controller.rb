@@ -11,6 +11,8 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     if params[:alphabetical]
       @team_players = @team.players.players_alphabetically
+    elsif params[:age]
+      @team_players = @team.players.filter_age(params[:age])
     else
       @team_players = @team.players
     end

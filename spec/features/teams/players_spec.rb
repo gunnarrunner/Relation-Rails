@@ -83,4 +83,14 @@ RSpec.describe 'Can show the players associated with a specific team with a nest
     expect(current_path).to eq("/players")
     expect(page).to_not have_content("#{@player1.name}")
   end
+
+  it 'can fill out a form and filter out results' do
+    fill_in('Age greater than input', with: '25')
+    
+    click_button("Filter")
+
+    expect(page).to_not have_content("#{@player1.name}")
+    expect(page).to_not have_content("#{@player3.name}")
+    expect(page).to have_content("#{@player2.name}")
+  end
 end
