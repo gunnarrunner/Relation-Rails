@@ -45,6 +45,7 @@ group :development, :test do
   gem 'launchy'
   gem 'orderly'
   gem 'shoulda-matchers'
+  gem 'nyan-cat-formatter'
 end
 
 group :development do

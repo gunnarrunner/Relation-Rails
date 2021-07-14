@@ -7,11 +7,11 @@ class Disc < ApplicationRecord
   validates             :in_production, inclusion: [true, false]
 
 
-  def self.discs_in_production #calling it on a class w/ self here
+  def self.discs_in_production
     self.where(in_production: true)
   end
 
-  def self.sort_discs_by_alpha #("LOWER(name)") lowercase??? and test for it??
+  def self.sort_discs_by_alpha 
     order(:name)
   end
 

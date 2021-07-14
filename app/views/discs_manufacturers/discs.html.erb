@@ -9,6 +9,8 @@
 <p>In Production: <%= disc.in_production %></p>
 <p>Created At:<%= disc.created_at %> </p>
 <p>Updated At:<%= disc.updated_at %> </p>
+<%= button_to "Delete", "/discs/#{disc.id}", method: :delete %>
+
 <% end %>
 
 <%= link_to "Sort Discs in Alphabetical Order", "/discs_manufacturers/#{@manufacturer.id}/discs?alphabetical=true" %>
