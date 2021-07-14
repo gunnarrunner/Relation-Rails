@@ -18,3 +18,7 @@ DiscsManufacturer.destroy_all
 @disc3 = @dm2.discs.create!(name: 'Challenger', in_production: true, speed: 12)
 @disc4 = @dm3.discs.create!(name: 'Freetail', in_production: true, speed: 10)
 @disc5 = @dm2.discs.create!(name: 'Flash', in_production: false, speed: 11)
+@disc6 = @dm3.discs.create!(name: 'Alpha', in_production: true, speed: 8)
+@disc7 = @dm3.discs.create!(name: 'Profit', in_production: false, speed: 2)
+@disc8 = @dm2.discs.create!(name: 'Buzz', in_production: true, speed: 2)
+@disc9 = @dm1.discs.create!(name: 'Leopard3', in_production: true, speed: 7)
