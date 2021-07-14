@@ -1,26 +1,42 @@
-# README
+# Relational Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Paired Project - 30 hrs
 
-Things you may want to cover:
+Each Person will come up with their own one to many relationship that should represent a real worldexample of their choice. There must be a few columns represented on each table:
 
-* Ruby version
+1. One string column for a 'name'
+2. One boolean column
+3. One numeric column
+4. Two DateTime
 
-* System dependencies
+There are Three Iterations and Twenty Three User Stories that can be found here : [User Stories](https://backend.turing.edu/module2/projects/relational_rails)
 
-* Configuration
+- ## Ruby version
 
-* Database creation
+  2.7.2
 
-* Database initialization
+- ## System dependencies
 
-* How to run the test suite
+  - rails 5.2.6
+  - pg < 2.0
+  - puma 3.11
+  - sass-rails 5.0
+  - uglifier >=1 .3.0
+  - coffee-rails 4.2
+  - jbuilder 2.5
+  - bootnsap >= 1.1.0
+  - json >= 2.0.0
+  - byebug
+  - pry
+  - rspec-rails
+  - simplecov
+  - capybara
+  - launchy
+  - orderly
+  - shoulda-matchers
 
-* Services (job queues, cache servers, search engines, etc.)
+* ## Database creation
+  [Schema](https://app.dbdesigner.net/designer/schema/434044)
 
-* Deployment instructions
-
-* ...
-# Relation-Rails
-
+- ## How to run the test suite
+  - RSpec

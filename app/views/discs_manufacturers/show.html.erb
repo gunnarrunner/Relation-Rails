@@ -1,0 +1,14 @@
+<a href="/discs_manufacturers/<%= @discs_manufacturer.id %>/discs">Discs Made By This Manufacturer</a>
+
+<section id="dm-<%= @discs_manufacturer.id %>">
+<h1><%= @discs_manufacturer.name %></h1>
+<p>Location:<%= @discs_manufacturer.location %></p>
+<p>International: <%= @discs_manufacturer.international %></p>
+<p>Variety of Discs: <%= @discs_manufacturer.variety_of_discs %></p>
+<p> Disc Count: <%= @discs_manufacturer.disc_count %> </p> 
+<p>Created At: <%= @discs_manufacturer.created_at %></p>
+<p>Updated At: <%= @discs_manufacturer.updated_at %></p>
+</section>
+
+<%= button_to "Edit #{@discs_manufacturer.name}", "/discs_manufacturers/#{@discs_manufacturer.id}/edit", method: :get %>
+<%= button_to "Delete", "/discs_manufacturers/#{@discs_manufacturer.id}", method: :delete %>

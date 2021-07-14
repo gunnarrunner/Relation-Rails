@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_201416) do
+ActiveRecord::Schema.define(version: 2021_07_14_173836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "discs", force: :cascade do |t|
+    t.string "name"
+    t.boolean "in_production"
+    t.integer "speed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.bigint "discs_manufacturer_id"
+    t.index ["discs_manufacturer_id"], name: "index_discs_on_discs_manufacturer_id"
+  end
+
+  create_table "discs_manufacturers", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.boolean "international"
+    t.integer "variety_of_discs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
@@ -33,5 +52,6 @@ ActiveRecord::Schema.define(version: 2021_07_06_201416) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "discs", "discs_manufacturers"
   add_foreign_key "players", "teams"
 end

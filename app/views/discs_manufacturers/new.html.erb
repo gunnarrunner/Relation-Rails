@@ -1,0 +1,11 @@
+<%= form_with url: '/discs_manufacturers', method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+  <%= f.label :international %>
+  <%= f.check_box :international %> (Check If Discs Are Available Internationally)<br>
+  <%= f.label :variety_of_discs %>
+  <%= f.text_field :variety_of_discs %><br>
+  <%= f.submit "Create Disc Manufacturer" %>
+<% end %>
