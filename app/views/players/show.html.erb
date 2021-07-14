@@ -1,0 +1,5 @@
+<h1> Player Name: <%= @player.name %> </h1>
+<h3> Age: <%= @player.age %> </h3>
+<h3> Healthy: <%= @player.healthy %>
+<h3> Link to <%= link_to "Update #{@player.name}", "/players/#{@player.id}/edit" %> </h3>
+<h3> Link to <%= link_to "Delete #{@player.name}", "/players/#{@player.id}", method: :delete %> </h3>

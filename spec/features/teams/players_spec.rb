@@ -1,14 +1,5 @@
 require 'rails_helper'
-
-RSpec.describe Player, type: :model do
-  describe 'relationships' do
-    it { should belong_to(:team) }
-  end
-
-  # describe 'validations' do
-  #   it { should validate_presence_of(:) }
-  # end
-
+RSpec.describe 'Can show the players associated with a specific team with a nested URI' do
   before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
@@ -35,34 +26,71 @@ RSpec.describe Player, type: :model do
     @player16 = Player.create!(name:"Zach Wilson", age: 21, healthy: true, team_id:@team6.id)
     @player17 = Player.create!(name:"Elijah Moore", age: 21, healthy: true, team_id:@team6.id)
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
-    @player19 = Player.create!(name:"Mike Evans", age: 27, healthy: true, team_id:@team4.id)
+      
+    visit "/teams/#{@team1.id}/players"
   end
 
-  describe 'class methods' do
-   describe '.visible_healthy' do
-      it 'only shows the healthy players on the idex page' do
+  it 'shows a link on top of the for the teams index page' do
+    click_on("Team's Index")
 
-        expect(Player.visible_healthy).to eq([@player2, @player3, @player5, @player6, @player9, @player10, @player11, @player16, @player17, @player18, @player19])
-      end
-    end
+    expect(current_path).to eq("/teams")
+  end
 
-    describe '.players_alphabetically' do
-      it 'can order players names alphabetically' do
+  it 'shows a link on top of the for the players index page' do
+    click_on("Player's Index")
 
-        expect(Player.players_alphabetically.first.name).to eq(@player9.name)
-      end
-    end
+    expect(current_path).to eq("/players")
+  end
 
-    describe '.filter_age' do
-      it 'can find age over a certain age' do
-        
-        expect(Player.filter_age(35)).to eq([@player7])
-      end
+  it 'can show the players associated with this specific team' do
+    team_players1 = [@player1, @player2, @player3]
+
+      expect(current_path).to eq("/teams/#{@team1.id}/players")
+      expect(page).to have_content(@team1.name)
+    team_players1.each do |player|
+      expect(page).to have_content(player.name)
+      expect(page).to have_content(player.age)
+      expect(page).to have_content(player.healthy)
     end
   end
 
-  # describe 'instance methods' do
-  #   describe '#' do
-  #   end
-  # end
+  it 'does not show any other players on this page that are not associated with this team' do
+    team_players2 = [@player4, @player8, @player14]
+
+      expect(page).to have_content(@team1.name)
+    team_players2.each do |player|
+      expect(page).to_not have_content(player.name)
+    end
+  end
+
+  it 'can click on the Order the Players Names Alphabetically link and see the names ordered Alphabetically' do
+
+    click_on('Order the Players Names Alphabetically')
+
+    expect(@player3.name).to appear_before(@player2.name)
+  end
+
+  it 'can find an edit button on and click on it and take to a player edit form' do
+
+    click_button("Edit #{@player1.name}")
+
+    expect(current_path).to eq("/players/#{@player1.id}/edit")
+  end
+
+  it 'can click the delete button and be taken to the index page and not see that players a name' do
+    click_button("Delete #{@player1.name}")
+
+    expect(current_path).to eq("/players")
+    expect(page).to_not have_content("#{@player1.name}")
+  end
+
+  it 'can fill out a form and filter out results' do
+    fill_in('Age greater than input', with: '25')
+    
+    click_button("Filter")
+
+    expect(page).to_not have_content("#{@player1.name}")
+    expect(page).to_not have_content("#{@player3.name}")
+    expect(page).to have_content("#{@player2.name}")
+  end
 end

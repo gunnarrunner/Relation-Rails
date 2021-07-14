@@ -1,14 +1,5 @@
 require 'rails_helper'
-
-RSpec.describe Player, type: :model do
-  describe 'relationships' do
-    it { should belong_to(:team) }
-  end
-
-  # describe 'validations' do
-  #   it { should validate_presence_of(:) }
-  # end
-
+RSpec.describe 'Can destroy the team and delete them from the table' do
   before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
@@ -35,34 +26,14 @@ RSpec.describe Player, type: :model do
     @player16 = Player.create!(name:"Zach Wilson", age: 21, healthy: true, team_id:@team6.id)
     @player17 = Player.create!(name:"Elijah Moore", age: 21, healthy: true, team_id:@team6.id)
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
-    @player19 = Player.create!(name:"Mike Evans", age: 27, healthy: true, team_id:@team4.id)
+      
+    visit "/teams/#{@team6.id}"
   end
 
-  describe 'class methods' do
-   describe '.visible_healthy' do
-      it 'only shows the healthy players on the idex page' do
+  it 'can delete an artist from the show page' do
+    click_on("Delete the #{@team6.name}")
 
-        expect(Player.visible_healthy).to eq([@player2, @player3, @player5, @player6, @player9, @player10, @player11, @player16, @player17, @player18, @player19])
-      end
-    end
-
-    describe '.players_alphabetically' do
-      it 'can order players names alphabetically' do
-
-        expect(Player.players_alphabetically.first.name).to eq(@player9.name)
-      end
-    end
-
-    describe '.filter_age' do
-      it 'can find age over a certain age' do
-        
-        expect(Player.filter_age(35)).to eq([@player7])
-      end
-    end
+    expect(current_path).to eq("/teams")
+    expect(page).to_not have_content("#{@team6.name}")
   end
-
-  # describe 'instance methods' do
-  #   describe '#' do
-  #   end
-  # end
 end

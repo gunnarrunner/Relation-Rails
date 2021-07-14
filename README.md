@@ -39,5 +39,4 @@ There are Three Iterations and Twenty Three User Stories that can be found here 
   [Schema](https://app.dbdesigner.net/designer/schema/434044)
 
 - ## How to run the test suite
-
   - RSpec

@@ -1,15 +1,6 @@
 require 'rails_helper'
-
-RSpec.describe Player, type: :model do
-  describe 'relationships' do
-    it { should belong_to(:team) }
-  end
-
-  # describe 'validations' do
-  #   it { should validate_presence_of(:) }
-  # end
-
-  before :each do
+ RSpec.describe 'shows a specfic players information' do
+   before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
     @team3 = Team.create!(name:"LA Lakers", champions: false, wins: 49)
@@ -35,34 +26,17 @@ RSpec.describe Player, type: :model do
     @player16 = Player.create!(name:"Zach Wilson", age: 21, healthy: true, team_id:@team6.id)
     @player17 = Player.create!(name:"Elijah Moore", age: 21, healthy: true, team_id:@team6.id)
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
-    @player19 = Player.create!(name:"Mike Evans", age: 27, healthy: true, team_id:@team4.id)
-  end
 
-  describe 'class methods' do
-   describe '.visible_healthy' do
-      it 'only shows the healthy players on the idex page' do
+    visit "/players/#{@player1.id}"
+   end
 
-        expect(Player.visible_healthy).to eq([@player2, @player3, @player5, @player6, @player9, @player10, @player11, @player16, @player17, @player18, @player19])
-      end
-    end
-
-    describe '.players_alphabetically' do
-      it 'can order players names alphabetically' do
-
-        expect(Player.players_alphabetically.first.name).to eq(@player9.name)
-      end
-    end
-
-    describe '.filter_age' do
-      it 'can find age over a certain age' do
-        
-        expect(Player.filter_age(35)).to eq([@player7])
-      end
-    end
-  end
-
-  # describe 'instance methods' do
-  #   describe '#' do
-  #   end
-  # end
-end
+   it 'can display a specific player and their attributes' do
+      expect(current_path).to eq("/players/#{@player1.id}")
+      expect(page).to have_content(@player1.name)
+      expect(page).to have_content(@player1.age)
+      expect(page).to have_content(@player1.healthy)
+      expect(page).to_not have_content(@player2.name)
+      expect(page).to_not have_content(@player2.age)
+      expect(page).to_not have_content(@player2.healthy)
+   end
+ end

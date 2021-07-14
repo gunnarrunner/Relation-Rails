@@ -1,6 +1,6 @@
 require 'rails_helper'
- RSpec.describe '' do
-   before :each do
+RSpec.describe 'the index view of all the teams' do
+  before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
     @team3 = Team.create!(name:"LA Lakers", champions: false, wins: 49)
@@ -29,12 +29,20 @@ require 'rails_helper'
 
 
     visit "/players"
-   end
-   it 'can show all the players names and their attributes' do
-    Player.all.each do |player|
-      expect(page).to have_content(player.name)
-      expect(page).to have_content(player.age)
-      expect(page).to have_content(player.healthy)
-    end
-   end
- end
+  end
+
+  it 'can show all the players names and their attributes' do
+    expect(current_path).to eq("/players")
+    expect(page).to have_content(@player2.name)
+    expect(page).to have_content(@player2.age)
+    expect(page).to have_content(@player2.healthy)
+    expect(page).to have_content(@player3.name)
+    expect(page).to have_content(@player3.age)
+    expect(page).to have_content(@player3.healthy)
+
+  end
+
+  it 'does not show any unhealthy players' do
+    expect(page).to_not have_content('Healthy: false')
+  end
+end

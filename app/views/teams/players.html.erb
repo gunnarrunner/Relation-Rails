@@ -1,0 +1,17 @@
+<p> <%= link_to 'Create a New Player for this Team', "/teams/#{@team.id}/players/new" %> </p>
+<p> <%= link_to 'Order the Players Names Alphabetically', "/teams/#{@team.id}/players?alphabetical=true" %> </p>
+<h1> <%= @team.name %> Roster: </h1>
+<% @team_players.each do |player|%>
+  <h3> <%= player.name %> </h3>
+  <p> <%= player.age %> </p>
+  <p> <%= player.healthy %> </p>
+  <p> <%= button_to "Edit #{player.name}", "/players/#{player.id}/edit", method: :get %> </p>
+  <p> <%= button_to "Delete #{player.name}", "/players/#{player.id}", method: :delete %> </p>
+<% end %>
+
+<%= form_with url: "/teams/#{@team.id}/players", method: :get, local: true do |form| %>
+  <%= form.label :age, "Age greater than input" %>
+  <p> <%= form.text_field :age %> </p>
+
+  <%= form.submit "Filter" %>
+<% end %>

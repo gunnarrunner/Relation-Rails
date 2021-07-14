@@ -1,0 +1,13 @@
+<%= form_with url: "/teams/#{@team.id}/players", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <p> <%= form.text_field :name %> </p>
+  <%= form.label :age %>
+  <p> <%= form.number_field :age %> </p>
+  <%= form.label :healthy %>
+  <p> <%= form.label :healthy, "true", :value => "true" %> 
+  <%= form.radio_button :healthy, true %> 
+  <%= form.label :healthy, "false", :value => "false" %> 
+  <%= form.radio_button :healthy, false %> </p>
+
+  <%= form.submit "Create Player" %>
+<% end %>

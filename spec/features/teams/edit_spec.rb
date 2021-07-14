@@ -1,14 +1,5 @@
 require 'rails_helper'
-
-RSpec.describe Player, type: :model do
-  describe 'relationships' do
-    it { should belong_to(:team) }
-  end
-
-  # describe 'validations' do
-  #   it { should validate_presence_of(:) }
-  # end
-
+RSpec.describe 'Update an existing team on their show page' do
   before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
@@ -35,34 +26,40 @@ RSpec.describe Player, type: :model do
     @player16 = Player.create!(name:"Zach Wilson", age: 21, healthy: true, team_id:@team6.id)
     @player17 = Player.create!(name:"Elijah Moore", age: 21, healthy: true, team_id:@team6.id)
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
-    @player19 = Player.create!(name:"Mike Evans", age: 27, healthy: true, team_id:@team4.id)
+
+
+    visit "/teams/#{@team2.id}"
+  end
+  it 'can click and edit a team and redirect to its show page' do
+    
+    click_link("#{@team2.name}")
+    expect(current_path).to eq("/teams/#{@team2.id}/edit")
+
+    
+    fill_in("Name", with: "Milwaukee Bucks")
+    fill_in("Wins", with: '60')
+    choose(false)
+
+    click_button('Update Team')
+
+    expect(current_path).to eq("/teams/#{@team2.id}")
+    expect(page).to have_content("Champions: false")
   end
 
-  describe 'class methods' do
-   describe '.visible_healthy' do
-      it 'only shows the healthy players on the idex page' do
+  it 'can click and edit a team from the index page and redirect to its show page' do
+    visit "/teams"
+    
+    click_button("Edit #{@team2.name}")
+    expect(current_path).to eq("/teams/#{@team2.id}/edit")
 
-        expect(Player.visible_healthy).to eq([@player2, @player3, @player5, @player6, @player9, @player10, @player11, @player16, @player17, @player18, @player19])
-      end
-    end
+    
+    fill_in("Name", with: "Milwaukee Bucks")
+    fill_in("Wins", with: '60')
+    choose(false)
 
-    describe '.players_alphabetically' do
-      it 'can order players names alphabetically' do
+    click_button('Update Team')
 
-        expect(Player.players_alphabetically.first.name).to eq(@player9.name)
-      end
-    end
-
-    describe '.filter_age' do
-      it 'can find age over a certain age' do
-        
-        expect(Player.filter_age(35)).to eq([@player7])
-      end
-    end
+    expect(current_path).to eq("/teams/#{@team2.id}")
+    expect(page).to have_content("Champions: false")
   end
-
-  # describe 'instance methods' do
-  #   describe '#' do
-  #   end
-  # end
 end
