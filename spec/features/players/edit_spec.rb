@@ -45,4 +45,21 @@ RSpec.describe 'Update an existing player on their show page' do
     expect(current_path).to eq("/players/#{@player10.id}")
     expect(page).to have_content("Age: 33")
   end
+
+  it 'can click and edit a player on the team players index page and redirect to the players show page' do
+    visit "/teams/#{@team4.id}/players"
+
+    click_button("Edit #{@player10.name}")
+    expect(current_path).to eq("/players/#{@player10.id}/edit")
+
+    
+    fill_in("Name", with: 'Rob Gronkowski')
+    fill_in("Age", with: '33')
+    choose(true)
+
+    click_button('Update Player')
+
+    expect(current_path).to eq("/players/#{@player10.id}")
+    expect(page).to have_content("Age: 33")
+  end
 end

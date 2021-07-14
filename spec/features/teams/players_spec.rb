@@ -64,10 +64,16 @@ RSpec.describe 'Can show the players associated with a specific team with a nest
   end
 
   it 'can click on the Order the Players Names Alphabetically link and see the names ordered Alphabetically' do
-    
-    
+
     click_on('Order the Players Names Alphabetically')
 
     expect(@player3.name).to appear_before(@player2.name)
+  end
+
+  it 'can find an edit button on and click on it and take to a player edit form' do
+
+    click_button("Edit #{@player1.name}")
+
+    expect(current_path).to eq("/players/#{@player1.id}/edit")
   end
 end
