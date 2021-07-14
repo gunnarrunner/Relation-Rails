@@ -62,4 +62,12 @@ RSpec.describe 'Can show the players associated with a specific team with a nest
       expect(page).to_not have_content(player.name)
     end
   end
+
+  it 'can click on the Order the Players Names Alphabetically link and see the names ordered Alphabetically' do
+    
+    
+    click_on('Order the Players Names Alphabetically')
+
+    expect(@player3.name).to appear_before(@player2.name)
+  end
 end

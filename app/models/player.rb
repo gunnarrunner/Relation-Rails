@@ -5,4 +5,8 @@ class Player < ApplicationRecord
   def self.visible_healthy
     where(healthy: :true)
   end
+
+  def self.players_alphabetically
+    order("LOWER(name)")
+  end
 end

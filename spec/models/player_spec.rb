@@ -45,6 +45,13 @@ RSpec.describe Player, type: :model do
         expect(Player.visible_healthy).to eq([@player2, @player3, @player5, @player6, @player9, @player10, @player11, @player16, @player17, @player18, @player19])
       end
     end
+
+    describe '.players_alphabetically' do
+      it 'can order players names alphabetically' do
+
+        expect(Player.players_alphabetically.first.name).to eq(@player9.name)
+      end
+    end
   end
 
   # describe 'instance methods' do

@@ -45,4 +45,21 @@ RSpec.describe 'Update an existing team on their show page' do
     expect(current_path).to eq("/teams/#{@team2.id}")
     expect(page).to have_content("Champions: false")
   end
+
+  it 'can click and edit a team from the index page and redirect to its show page' do
+    visit "/teams"
+    
+    click_button("Edit #{@team2.name}")
+    expect(current_path).to eq("/teams/#{@team2.id}/edit")
+
+    
+    fill_in("Name", with: "Milwaukee Bucks")
+    fill_in("Wins", with: '60')
+    choose(false)
+
+    click_button('Update Team')
+
+    expect(current_path).to eq("/teams/#{@team2.id}")
+    expect(page).to have_content("Champions: false")
+  end
 end

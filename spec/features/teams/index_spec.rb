@@ -32,4 +32,10 @@ require 'rails_helper'
 
     expect(@team6.name).to appear_before(@team1.name)
   end
+
+  it 'can click on the edit button and be taken to an edit page' do
+    click_button("Edit #{@team2.name}")
+
+    expect(current_path).to eq("/teams/#{@team2.id}/edit")
+  end
  end

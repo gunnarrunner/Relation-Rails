@@ -9,7 +9,11 @@ class TeamsController < ApplicationController
 
   def players
     @team = Team.find(params[:id])
-    @team_players = @team.players
+    if params[:alphabetical]
+      @team_players = @team.players.players_alphabetically
+    else
+      @team_players = @team.players
+    end
   end
 
   def new
