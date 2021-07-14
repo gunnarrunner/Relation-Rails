@@ -19,16 +19,15 @@ RSpec.describe 'Create a disc' do
 
     click_link("Create New Disc")
 
-    expect(current_path).to eq('/discs/new')
+    expect(current_path).to eq("/discs_manufacturers/#{@dm1.id}/new")
 
     fill_in('Name', with: 'Defender')
-    fill_in('In production', with: true)
+    check ('In production')
     fill_in('Speed', with: 13)
-    fill_in('Discs manufacturer', with: "#{@dm1.id}")
 
     click_button('Create New Disc')
 
-    expect(current_path).to eq("/discs_manufacturers/#{dm1.id}/discs")
+    expect(current_path).to eq("/discs_manufacturers/#{@dm1.id}/discs")
     expect(page).to have_content('Defender')
   end
 end

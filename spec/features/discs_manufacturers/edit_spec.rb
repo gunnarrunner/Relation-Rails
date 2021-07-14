@@ -13,16 +13,16 @@ require 'rails_helper'
 
 RSpec.describe 'the disc manufacturer edit' do
   before :each do
-    discs_manufacturer = DiscsManufacturer.create!(name: 'Kastaplast', location: 'Stockholm, Sweden', international: true, variety_of_discs: 14)
+    @discs_manufacturer = DiscsManufacturer.create!(name: 'Kastaplast', location: 'Stockholm, Sweden', international: true, variety_of_discs: 14)
 
     visit '/discs_manufacturers'
   end
 
   it 'links to the edit page' do
 
-    click_button "Edit #{discs_manufacturer.name}"
+    click_button "Edit #{@discs_manufacturer.name}"
 
-    expect(current_path).to eq("/discs_manufacturers/#{discs_manufacturer.id}/edit")
+    expect(current_path).to eq("/discs_manufacturers/#{@discs_manufacturer.id}/edit")
   end
 
   it 'can edit the disc manufacturer' do

@@ -15,7 +15,7 @@ RSpec.describe 'destroying a disc' do
     disc = Disc.create!(name: 'Flash', in_production: true, speed: 11, discs_manufacturer_id: dm.id)
 
     visit '/discs'
-    
+
     click_button 'Delete'
 
     expect(current_path).to eq('/discs')

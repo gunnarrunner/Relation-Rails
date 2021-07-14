@@ -14,7 +14,7 @@
 <%= link_to "Sort Discs in Alphabetical Order", "/discs_manufacturers/#{@manufacturer.id}/discs?alphabetical=true" %>
 
 <%= form_with url: "/discs_manufacturers/#{@manufacturer.id}/discs", method: :get, local: true do |f| %>
-<%= f.label :number %>
+<%= f.label :number, "Return Discs Higher Than:" %>
 <%= f.text_field :number %>
-<%= f.submit "Only return records with more than 'number' of Speed" %>
+<%= f.submit "Submit" %>
 <% end %>

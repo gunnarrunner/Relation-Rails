@@ -33,7 +33,7 @@ RSpec.describe 'the discs manufacturers discs index page' do
     expect(page).to have_link('Create New Disc')
   end
 
-  it 'has a link to create a new disc made by that manufacturer' do
+  it 'has a link to sort the discs of disc manufacturer in alphabetical order' do
     expect(page).to have_link('Sort Discs in Alphabetical Order')
   end
 
@@ -47,6 +47,19 @@ RSpec.describe 'the discs manufacturers discs index page' do
 
     expect(@disc1.name).to appear_before(@disc6.name)
     expect(@disc6.name).to appear_before(@disc2.name)
+  end
 
+  it 'has a button to display discs with a speed over a certain threshold' do
+
+    expect(page).to have_button('Submit')
+  end
+
+  it 'can display discs with a speed over a certain threshold' do
+    fill_in('Return Discs Higher Than:', with: 10)
+    click_button('Submit')
+
+    expect(page).to_not have_content("#{@disc2.name}")
+    expect(page).to_not have_content("#{@disc4.name}")
+    expect(page).to_not have_content("#{@disc6.name}")
   end
 end

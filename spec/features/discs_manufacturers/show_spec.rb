@@ -21,13 +21,7 @@ RSpec.describe 'the discs manufacturers show page' do
   end
 
   it 'does not show specific information of other discs manufacturers' do
-    expect(page).to_not have_content(@dm2.name)
-    # expect(page).to_not have_content(@dm2.location)
-    # save_and_open_page
-    # within "section#dm-#{@dm2.id}" do
-    #   expect(page).to_not have_content(@dm2.international)
-    # end
-    # expect(page).to_not have_content(@dm2.variety_of_discs)
+    expect(page).to_not have_content(@dm2.name) #bc page still returns true... within block?
   end
 
   it 'can show number of discs associated with a discs manufacturer' do

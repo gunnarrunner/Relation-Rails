@@ -25,4 +25,24 @@ RSpec.describe 'the discs index page' do
   it 'only shows discs where In Production column equals true' do
     expect(page).to_not have_content('Flash')
   end
+
+  it 'has a button to edit a discs manufacturer' do
+    Disc.all do |disc|
+      expect(page).to have_button("Edit #{@disc1.name}")
+      expect(page).to have_button("Edit #{@disc2.name}")
+      expect(page).to have_button("Edit #{@disc3.name}")
+      expect(page).to have_button("Edit #{@disc4.name}")
+      expect(page).to have_button("Edit #{@disc5.name}")
+    end
+  end
+
+  it 'has a button to delete a discs manufacturer' do
+    Disc.all do |disc|
+      expect(page).to have_button("Delete #{@disc1.name}")
+      expect(page).to have_button("Delete #{@disc2.name}")
+      expect(page).to have_button("Delete #{@disc3.name}")
+      expect(page).to have_button("Delete #{@disc4.name}")
+      expect(page).to have_button("Delete #{@disc5.name}")
+    end
+  end
 end
