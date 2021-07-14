@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
 
   get '/players', to: 'players#index'
+  get '/teams/:id/players/new', to: 'players#new'
+  post '/teams/:id/players', to: 'players#create'
   get '/players/:id', to: 'players#show'
 end

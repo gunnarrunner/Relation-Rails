@@ -1,3 +1,4 @@
+<p> <%= link_to 'Create a New Player for this Team', "/teams/#{@team.id}/players/new" %> </p>
 <h1> <%= @team.name %> Roster: </h1>
 <% @team_players.each do |player|%>
   <h3> <%= player.name %> </h3>

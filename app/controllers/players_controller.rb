@@ -7,13 +7,15 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
-  # def new
-    
-  # end
+  def new
+    @team = Team.find(params[:id])
+  end
 
-  # def create
-    
-  # end
+  def create
+    team = Team.find(params[:id])
+    player = team.players.create(players_params)
+    redirect_to "/teams/#{team.id}/players"
+  end
 
   # def edit
     
@@ -27,8 +29,8 @@ class PlayersController < ApplicationController
     
   # end
 
-  # private
-  # def _params
-  #   params.permit(:)
-  # end
+  private
+  def players_params
+    params.permit(:name, :age, :healthy)
+  end
 end

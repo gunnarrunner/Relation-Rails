@@ -13,7 +13,6 @@ class TeamsController < ApplicationController
   end
 
   def new
-    
   end
 
   def create

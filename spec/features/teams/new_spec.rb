@@ -4,7 +4,7 @@ RSpec.describe 'Create a new team to the index' do
 
     visit "/teams"
   end
-  it 'can make click and make a new team and redirect to the index page' do
+  it 'can click and make a new team and redirect to the index page' do
     
     click_link('Create a New Team')
     expect(current_path).to eq("/teams/new")
