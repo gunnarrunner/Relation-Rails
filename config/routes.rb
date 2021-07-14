@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/', to: 'welcome#index'
+  get '/disc_finder', to: 'welcome_disc_finder#index'
   get '/discs_manufacturers', to: 'discs_manufacturers#index'
   get '/discs_manufacturers/new', to: 'discs_manufacturers#new'
   post '/discs_manufacturers', to: 'discs_manufacturers#create'
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   patch '/discs/:id', to: 'discs#update'
   delete '/discs/:id', to: 'discs#destroy'
 
-
+  get '/sport_team_finder', to: 'welcome_sport_team_finder#index'
   get '/teams', to: 'teams#index'
   get '/teams/:id', to: 'teams#show'
 
