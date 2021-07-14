@@ -38,4 +38,11 @@ require 'rails_helper'
 
     expect(current_path).to eq("/teams/#{@team2.id}/edit")
   end
+
+  it 'can click the delete button and be taken to the index page and not see that teams a name' do
+    click_button("Delete the #{@team6.name}")
+
+    expect(current_path).to eq("/teams")
+    expect(page).to_not have_content("#{@team6.name}")
+  end
  end

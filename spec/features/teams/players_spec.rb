@@ -76,4 +76,11 @@ RSpec.describe 'Can show the players associated with a specific team with a nest
 
     expect(current_path).to eq("/players/#{@player1.id}/edit")
   end
+
+  it 'can click the delete button and be taken to the index page and not see that players a name' do
+    click_button("Delete #{@player1.name}")
+
+    expect(current_path).to eq("/players")
+    expect(page).to_not have_content("#{@player1.name}")
+  end
 end

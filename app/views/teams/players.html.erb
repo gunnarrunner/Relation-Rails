@@ -6,4 +6,5 @@
   <p> <%= player.age %> </p>
   <p> <%= player.healthy %> </p>
   <p> <%= button_to "Edit #{player.name}", "/players/#{player.id}/edit", method: :get %> </p>
+  <p> <%= button_to "Delete #{player.name}", "/players/#{player.id}", method: :delete %> </p>
 <% end %>

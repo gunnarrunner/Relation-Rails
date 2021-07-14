@@ -32,7 +32,7 @@ RSpec.describe 'Update an existing player on their show page' do
   end
   it 'can click and edit a players and redirect to the players show page' do
     
-    click_link("#{@player10.name}")
+    click_link("Update #{@player10.name}")
     expect(current_path).to eq("/players/#{@player10.id}/edit")
 
     
