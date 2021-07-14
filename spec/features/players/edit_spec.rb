@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Update an existing team on their show page' do
+RSpec.describe 'Update an existing player on their show page' do
   before :each do
     @team1 = Team.create!(name:"Denver Nuggets", champions: false, wins: 55)
     @team2 = Team.create!(name:"Milwaukee Bucks", champions: true, wins: 60)
@@ -28,21 +28,21 @@ RSpec.describe 'Update an existing team on their show page' do
     @player18 = Player.create!(name:"Jamison Crowder", age: 28, healthy: true, team_id:@team6.id)
 
 
-    visit "/teams/#{@team2.id}"
+    visit "/players/#{@player10.id}"
   end
-  it 'can click and edit a team and redirect to its show page' do
+  it 'can click and edit a players and redirect to the players show page' do
     
-    click_link("#{@team2.name}")
-    expect(current_path).to eq("/teams/#{@team2.id}/edit")
+    click_link("#{@player10.name}")
+    expect(current_path).to eq("/players/#{@player10.id}/edit")
 
     
-    fill_in("Name", with: "Milwaukee Bucks")
-    fill_in("Wins", with: '60')
-    choose(false)
+    fill_in("Name", with: 'Rob Gronkowski')
+    fill_in("Age", with: '33')
+    choose(true)
 
-    click_button('Update Team')
+    click_button('Update Player')
 
-    expect(current_path).to eq("/teams/#{@team2.id}")
-    expect(page).to have_content("Champions: false")
+    expect(current_path).to eq("/players/#{@player10.id}")
+    expect(page).to have_content("Age: 33")
   end
 end

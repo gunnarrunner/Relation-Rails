@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def index
-     @players = Player.all
+     @players = Player.visible_healthy
   end
 
   def show
@@ -17,13 +17,15 @@ class PlayersController < ApplicationController
     redirect_to "/teams/#{team.id}/players"
   end
 
-  # def edit
-    
-  # end
+  def edit
+    @player = Player.find(params[:id])
+  end
 
-  # def update
-    
-  # end
+  def update
+    player = Player.find(params[:id])
+    player.update(players_params)
+    redirect_to "/players/#{player.id}"
+  end
 
   # def destroy
     
