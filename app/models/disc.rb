@@ -11,7 +11,7 @@ class Disc < ApplicationRecord
     self.where(in_production: true)
   end
 
-  def self.sort_discs_by_alpha #lowercase??? and test for it??
+  def self.sort_discs_by_alpha #("LOWER(name)") lowercase??? and test for it??
     order(:name)
   end
 
